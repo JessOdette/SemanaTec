@@ -2,11 +2,9 @@
 
 Exercises
 
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
+1. Los fantasmas sean más listos. JESSICA
+2. Cambiar el tablero. JESSICA
+3. Hacer que los fantasmas vayan mas rápido. NICOLLE
 """
 
 from random import choice

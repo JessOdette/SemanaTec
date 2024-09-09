@@ -24,7 +24,7 @@ def line(start, end):
 
 def square(start, end):
     """Draw square from start to end."""
-    up()
+    up() 
     goto(start.x, start.y)
     down()
     begin_fill()
@@ -43,12 +43,37 @@ def circle(start, end):
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    # Dibujar dos lados largos y dos lados cortos
+    forward(end.x - start.x)  # Lado largo
+    left(90)
+    forward(end.y - start.y)  # Lado corto
+    left(90)
+    forward(end.x - start.x)  # Lado largo
+    left(90)
+    forward(end.y - start.y)  # Lado corto
+    left(90)
+
+    end_fill()
 
 
 def triangle(start, end):
     """Draw triangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    # Dibujar tres lados del triángulo
+    for _ in range(3):
+        forward(end.x - start.x)
+        left(120)
+
+    end_fill()
 
 
 def tap(x, y):

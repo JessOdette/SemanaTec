@@ -201,6 +201,15 @@ def move():
         if valid(point + course):
             point.move(course)  # Mueve al fantasma si la nueva dirección es válida
         else:
+<<<<<<< HEAD
+            options = [
+                vector(10, 0),
+                vector(-10, 0),
+                vector(0, 10),
+                vector(0, -10), #Changed from 5 to 10
+            ]
+            plan = choice(options)
+=======
             # Fantasmas inteligentes: Eligen la dirección hacia Pacman
             if pacman.x > point.x:
                 plan = vector(5, 0)  # Fantasma se mueve hacia la derecha
@@ -210,6 +219,7 @@ def move():
                 plan = vector(0, 5)  # Fantasma se mueve hacia arriba
             else:
                 plan = vector(0, -5)  # Fantasma se mueve hacia abajo
+>>>>>>> 2c94e5844034834f7676da3973027537cfc18f90
             course.x = plan.x
             course.y = plan.y
 

@@ -17,7 +17,7 @@ y colaboraciones mediante GitHub.
    ```bash
    git clone https://github.com/JessOdette/SemanaTec
 
-##Contenido
+## Contenido
 
 Actividad1: Al juego de dibujar figuras, se añaden funciones para dibujar triángulo, círculo y rectángulo. También se añade el color naranja.
 

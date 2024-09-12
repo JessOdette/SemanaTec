@@ -18,6 +18,7 @@ y colaboraciones mediante GitHub.
    git clone https://github.com/JessOdette/SemanaTec
 
 ##Contenido
+
 Actividad1: Al juego de dibujar figuras, se añaden funciones para dibujar triángulo, círculo y rectángulo. También se añade el color naranja.
 
 Actividad2: Presenta el famoso juego de "Snake", pero en esta versión la snake camina más rápido conforme come y la comida se mueve. 

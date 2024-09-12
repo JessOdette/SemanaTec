@@ -4,7 +4,7 @@ Herramientas computacionales: El arte de la programacion
 Poryecto realizado durante la primer semana Tec del 2024, el cual consiste en reforzar el pensamiento computacional e implementar el conocimiento de uso de versiones 
 y colaboraciones mediante GitHub. 
 
-## Requisitos
+### Requisitos
 
 - **Python 3.12.4**: Para ejecutar este proyecto, necesitas tener instalada la versión 3.12.4 de Python.
 
@@ -17,6 +17,7 @@ y colaboraciones mediante GitHub.
    ```bash
    git clone https://github.com/JessOdette/SemanaTec
 
+##Contenido
 Actividad1: Al juego de dibujar figuras, se añaden funciones para dibujar triángulo, círculo y rectángulo. También se añade el color naranja.
 
 Actividad2: Presenta el famoso juego de "Snake", pero en esta versión la snake camina más rápido conforme come y la comida se mueve. 

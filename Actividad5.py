@@ -16,9 +16,68 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+
+tileColors = ["pink", "green", "red", "purple", "blue", "yellow", "orange", "cyan"]
+tileShapes = ["square", "circle", "triangle", "rectangle"]
+tiles = [(x, y) for x in tileShapes for y in tileColors] * 2
+shuffle(tiles)
+
 state = {'mark': None, 'taps': 0} #Se crea un diccionario con la marca y el número de taps
 hide = [True] * 64
+
+def squareDraw(x, y, color):
+    """Draw square in tile"""
+    up()
+    goto(x, y)
+    down()
+    fillcolor(color)
+    begin_fill()
+
+    for count in range(4):
+        forward(50)
+        left(90)
+
+    end_fill()
+
+def circleDraw(x, y, color):
+    """Draw circle in tile"""
+    up()
+    goto(x+25, y)
+    down()
+    fillcolor(color)
+    begin_fill()
+    circle(25)
+    end_fill()
+
+def triangleDraw(x, y, color):
+    """Draw triangle in tile"""
+    up()
+    goto(x, y)
+    down()
+    fillcolor(color)
+    begin_fill()
+
+    for _ in range(3):
+        forward(50)
+        left(120)
+
+    end_fill()
+
+def rectangleDraw(x, y, color):
+    """Draw rectangle in tile"""
+    up()
+    goto(x, y + 12)
+    down()
+    fillcolor(color)
+    begin_fill()
+
+    for _ in range(2):
+        forward(50)
+        left(90)
+        forward(25)
+        left(90)
+
+    end_fill()
 
 
 def square(x, y):
@@ -85,8 +144,19 @@ def draw():
         x, y = xy(mark)
         up()
         goto(x + 26, y + 5)  
-        color('black')
-        write(tiles[mark], align="center", font=('Arial', 30, 'normal'))
+        #color('black')
+        #write(tiles[mark], align="center", font=('Arial', 30, 'normal'))
+        
+
+        shapeName, shapeColor = tiles[mark]
+        if shapeName ==  "rectangle":
+            rectangleDraw(x, y, shapeColor)
+        elif shapeName == "circle":
+            circleDraw(x, y, shapeColor)
+        elif shapeName == "triangle":
+            triangleDraw(x, y, shapeColor)
+        elif shapeName == "square":
+            squareDraw(x, y, shapeColor)
 
     update()
     ontimer(draw, 100)

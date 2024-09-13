@@ -51,7 +51,8 @@ def move():
     snake.append(head)
  
     foodRandom = {"x": 300, "y": 300}
-    if head in range(food.x, food.x) or range(food.y, food.y): #Rango para tocar comida con cabeza
+    if (abs(head.x-food.x)<1) or (abs(head.y-food.y)<1):
+    #if head in range(food.x, food.x) or range(food.y, food.y): #Rango para tocar comida con cabeza
         print('Snake:', len(snake))
         speed = speed - 10 #Aumentamos la velocidad conforme come la serpiente
         food.x = randrange(-15, 15) * 10

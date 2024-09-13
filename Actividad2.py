@@ -31,6 +31,10 @@ def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
 
+def insideRangeFood(food):
+    """Return True if food inside boundaries."""
+    return -200 < food.get("x") < 190 and -200 < food.get("y") < 190
+
 
 def move():
     global random_color
@@ -45,14 +49,22 @@ def move():
         return
 
     snake.append(head)
-
-    if head == food:
+ 
+    foodRandom = {"x": 300, "y": 300}
+    if head in range(food.x, food.x) or range(food.y, food.y): #Rango para tocar comida con cabeza
         print('Snake:', len(snake))
         speed = speed - 10 #Aumentamos la velocidad conforme come la serpiente
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
 
     else:
+        #Si no toca la comida, esta debe moverse un espacio aleatorio adyacente
+        while not insideRangeFood(foodRandom):
+            foodRandomX = food.x + random.choice([-1, 0, 1]) * 10 #Elige si avanzar, quedarse o retroceder en x
+            foodRandomY = food.y + random.choice([-1, 0, 1]) * 10 #Elige si avanzar, quedarse o retroceder en y
+            foodRandom = {"x": foodRandomX, "y": foodRandomY}
+        food.x = foodRandomX #Comida tiene nueva x
+        food.y = foodRandomY #Comida tiene nueva y
         snake.pop(0)
 
     clear()

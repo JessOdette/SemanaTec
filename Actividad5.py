@@ -17,64 +17,65 @@ from freegames import path
 
 car = path('car.gif')
 
-tileColors = ["pink", "green", "red", "purple", "blue", "yellow", "orange", "cyan"]
-tileShapes = ["square", "circle", "triangle", "rectangle"]
-tiles = [(x, y) for x in tileShapes for y in tileColors] * 2
-shuffle(tiles)
+tileColors = ["pink", "green", "red", "purple", "blue", "yellow", "orange", "cyan"] #Lista de nombres de colores posibles que puede tener una figura en cada cuadro del tablero
+tileShapes = ["square", "circle", "triangle", "rectangle"] #Lista de nombres de figuras posibles que puede haber en cada cuandro del tablero
+tiles = [(x, y) for x in tileShapes for y in tileColors] * 2 #Cada cuadro tiene una figura de determinado color al azar
 
 state = {'mark': None, 'taps': 0} #Se crea un diccionario con la marca y el número de taps
 hide = [True] * 64
 
+
+#Figuras posibles que pueden estar en cada cuadro del tablero
 def squareDraw(x, y, color):
-    """Draw square in tile"""
+    """Draw square in tile with given color"""
     up()
-    goto(x, y)
+    goto(x, y) #Para que cuadrado se dibuje centrado
     down()
     fillcolor(color)
     begin_fill()
 
     for count in range(4):
-        forward(50)
+        forward(50) #Tamaño corresponde con tamaño de cuadro de tablero
         left(90)
 
     end_fill()
 
 def circleDraw(x, y, color):
-    """Draw circle in tile"""
+    """Draw circle in tile with given color"""
     up()
-    goto(x+25, y)
+    goto(x+25, y) #Para que circulo se dibuje centrado
     down()
     fillcolor(color)
     begin_fill()
-    circle(25)
+    circle(25) #Tamaño de radio corresponde con tamaño de cuadro de tablero
     end_fill()
 
 def triangleDraw(x, y, color):
-    """Draw triangle in tile"""
+    """Draw triangle in tile with given color"""
     up()
-    goto(x, y)
+    goto(x, y) #Para que triangulo se dibuje centrado
     down()
     fillcolor(color)
     begin_fill()
 
     for _ in range(3):
-        forward(50)
+        forward(50) #Tamaño corresponde con tamaño de cuadro de tablero
         left(120)
 
     end_fill()
 
 def rectangleDraw(x, y, color):
-    """Draw rectangle in tile"""
+    """Draw rectangle in tile with given color"""
     up()
-    goto(x, y + 12)
+    goto(x, y + 12) #Para que rectangulo se dubuje centrado
     down()
     fillcolor(color)
     begin_fill()
 
     for _ in range(2):
-        forward(50)
+        forward(50) #Tamaño corresponde con tamaño de cuadro de tablero
         left(90)
-        forward(25)
+        forward(25) #Lado más corto del tablero
         left(90)
 
     end_fill()
@@ -145,9 +146,9 @@ def draw():
         up()
         goto(x + 26, y + 5)  
         #color('black')
-        #write(tiles[mark], align="center", font=('Arial', 30, 'normal'))
+        #write(tiles[mark], align="center", font=('Arial', 30, 'normal')) #Los numeros se alinean a centro con align center
         
-
+        #Dibujar figura con color dependiendo del cuadro del tablero seleccionado
         shapeName, shapeColor = tiles[mark]
         if shapeName ==  "rectangle":
             rectangleDraw(x, y, shapeColor)
@@ -163,7 +164,7 @@ def draw():
 
 
 
-shuffle(tiles)
+shuffle(tiles) #Mezclar cuadros de tablero
 setup(420, 420, 370, 0)
 addshape(car)
 hideturtle()
